@@ -3,7 +3,7 @@ Coverage API
 Run tests
 
 ```console
-$ docker-compose run --rm app go test ./...
+$ docker-compose run --rm app go test -v ./...
 ```
 
 Run server and build for develop

@@ -12,6 +12,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: build docker stack
-      run: docker-compose -f local.yml build
+      run: docker-compose build
     - name: Run Tests
-      run: docker-compose -f local.yml run --rm app go test -v ./...
+      run: docker-compose run --rm app go test -v ./...
