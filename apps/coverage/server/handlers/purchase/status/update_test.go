@@ -64,7 +64,7 @@ func TestCreateHandler(tGlobal *testing.T) {
 	purchaseMockRepo.On("Find", mock.Anything).Return(mockPurchase, nil)
 	purchaseMockRepo.On("UpdateStatus", mock.Anything, mock.Anything).Return(mockPurchase, nil)
 
-	engine.Use(middlewares.ErrorHandler())
+	engine.Use(middlewares.ErrorMiddleware())
 	engine.Use(middlewares.JwtAuthMiddleware(userMockRepo))
 	engine.PUT(ENDPOINT_CREATE+":purchase_id/status", UpdatePurchaseStatusHandler(purchaseMockRepo))
 	tGlobal.Run("Returns 200", func(t *testing.T) {

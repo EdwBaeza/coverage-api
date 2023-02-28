@@ -51,7 +51,7 @@ func TestListHandler(t *testing.T) {
 	purchaseMockRepo := &purchaseInfraestructure.MockRepository{}
 	purchaseMockRepo.On("List", mock.Anything).Return([]purchaseDomain.Purchase{mockPurchase}, nil)
 
-	engine.Use(middlewares.ErrorHandler())
+	engine.Use(middlewares.ErrorMiddleware())
 	engine.Use(middlewares.JwtAuthMiddleware(userMockRepo))
 	engine.GET(ENDPOINT_LIST, ListPurchasesHandler(purchaseMockRepo))
 	t.Run("Returns 200", func(t *testing.T) {

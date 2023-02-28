@@ -16,7 +16,7 @@ func RegisterRouter(engine *gin.Engine) {
 	purchaseRespository := purchaseInfraestructure.NewMongoRepository()
 	userRepository := userInfraestructure.NewMongoRepository()
 
-	engine.Use(middlewares.ErrorHandler())
+	engine.Use(middlewares.ErrorMiddleware())
 
 	apiGroup := engine.Group("/api")
 	authorized := apiGroup.Group("/")

@@ -40,7 +40,7 @@ func TestRegistrationHandler(tGlobal *testing.T) {
 	}
 	mockRepo.On("Create", mock.Anything).Return(mockUser, nil)
 	mockRepo.On("FindByEmail", mock.Anything).Return(mockUser, errors.New("No documents in result"))
-	engine.Use(middlewares.ErrorHandler())
+	engine.Use(middlewares.ErrorMiddleware())
 	engine.POST(ENDPOINT_REGISTRATION, RegistrationHandler(mockRepo))
 	tGlobal.Run("Returns 201", func(t *testing.T) {
 		var dataReader bytes.Buffer

@@ -51,7 +51,7 @@ func TestFindHandler(t *testing.T) {
 	purchaseMockRepo := &purchaseInfraestructure.MockRepository{}
 	purchaseMockRepo.On("Find", mock.Anything).Return(mockPurchase, nil)
 
-	engine.Use(middlewares.ErrorHandler())
+	engine.Use(middlewares.ErrorMiddleware())
 	engine.Use(middlewares.JwtAuthMiddleware(userMockRepo))
 	engine.GET(ENDPOINT_FIND+":id", FindPurchaseHandler(purchaseMockRepo))
 	t.Run("Returns 200", func(t *testing.T) {

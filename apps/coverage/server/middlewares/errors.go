@@ -30,7 +30,7 @@ func getErrorMsg(fe validator.FieldError) string {
 	return "Unknown error"
 }
 
-func ErrorHandler() gin.HandlerFunc {
+func ErrorMiddleware() gin.HandlerFunc {
 	return func(context *gin.Context) {
 		context.Next()
 		err := context.Errors.Last()

@@ -87,7 +87,7 @@ func TestCreateHandler(tGlobal *testing.T) {
 	purchaseMockRepo := &purchaseInfraestructure.MockRepository{}
 	purchaseMockRepo.On("Create", mock.Anything).Return(mockPurchase, nil)
 
-	engine.Use(middlewares.ErrorHandler())
+	engine.Use(middlewares.ErrorMiddleware())
 	engine.Use(middlewares.JwtAuthMiddleware(userMockRepo))
 	engine.POST(ENDPOINT_CREATE, CreatePurchaseHandler(purchaseMockRepo))
 	tGlobal.Run("Returns 201", func(t *testing.T) {

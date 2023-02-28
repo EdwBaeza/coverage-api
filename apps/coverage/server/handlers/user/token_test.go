@@ -39,7 +39,7 @@ func TestTokenHandler(t *testing.T) {
 	mockRepo.On("FindByEmail", data["username"]).Return(user, nil)
 	mockRepo.On("Update", mock.Anything, mock.Anything).Return(user, nil)
 
-	engine.Use(middlewares.ErrorHandler())
+	engine.Use(middlewares.ErrorMiddleware())
 	engine.POST(ENDPOINT, TokenHandler(mockRepo))
 
 	t.Run("Returns 200", func(t *testing.T) {
