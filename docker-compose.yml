@@ -1,0 +1,24 @@
+version: "3"
+
+volumes:
+  mongo_data_local: {}
+
+services:
+  app:
+    build:
+      dockerfile: 'Dockerfile.dev'
+      context: .
+    volumes:
+      - .:/usr/src/app
+    ports:
+    - "3000:3000"
+    depends_on:
+      - mongodb
+    env_file:
+      - .env
+  mongodb:
+    image: mongo:5.0.14
+    volumes:
+      - mongo_data_local:/data/db
+    ports:
+    - "27017:27017"
