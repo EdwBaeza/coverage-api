@@ -10,7 +10,6 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
-// Creator that wraps the Create method.
 type Creator struct {
 	repository domain.UserRepository
 }
