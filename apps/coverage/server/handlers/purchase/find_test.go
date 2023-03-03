@@ -8,10 +8,10 @@ import (
 
 	"github.com/edwbaeza/coverage-api/apps/coverage/server/middlewares"
 	purchaseDomain "github.com/edwbaeza/coverage-api/src/purchase/domain"
-	purchaseInfraestructure "github.com/edwbaeza/coverage-api/src/purchase/infraestructure"
+	purchaseinfrastructure "github.com/edwbaeza/coverage-api/src/purchase/infrastructure"
 	sharedDomain "github.com/edwbaeza/coverage-api/src/shared/domain"
 	userDomain "github.com/edwbaeza/coverage-api/src/user/domain"
-	userInfraestructure "github.com/edwbaeza/coverage-api/src/user/infraestructure"
+	userinfrastructure "github.com/edwbaeza/coverage-api/src/user/infrastructure"
 	"github.com/edwbaeza/coverage-api/src/utils"
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/assert"
@@ -46,9 +46,9 @@ func TestFindHandler(t *testing.T) {
 		},
 	}
 
-	userMockRepo := &userInfraestructure.MockRepository{}
+	userMockRepo := &userinfrastructure.MockRepository{}
 	userMockRepo.On("Find", mock.Anything).Return(mockUser, nil)
-	purchaseMockRepo := &purchaseInfraestructure.MockRepository{}
+	purchaseMockRepo := &purchaseinfrastructure.MockRepository{}
 	purchaseMockRepo.On("Find", mock.Anything).Return(mockPurchase, nil)
 
 	engine.Use(middlewares.ErrorMiddleware())

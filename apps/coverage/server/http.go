@@ -6,15 +6,15 @@ import (
 	statusHandlder "github.com/edwbaeza/coverage-api/apps/coverage/server/handlers/purchase/status"
 	userHandlers "github.com/edwbaeza/coverage-api/apps/coverage/server/handlers/user"
 	"github.com/edwbaeza/coverage-api/apps/coverage/server/middlewares"
-	purchaseInfraestructure "github.com/edwbaeza/coverage-api/src/purchase/infraestructure"
-	userInfraestructure "github.com/edwbaeza/coverage-api/src/user/infraestructure"
+	purchaseinfrastructure "github.com/edwbaeza/coverage-api/src/purchase/infrastructure"
+	userinfrastructure "github.com/edwbaeza/coverage-api/src/user/infrastructure"
 	"github.com/gin-gonic/gin"
 )
 
 // RegisterRouter wih gin context
 func RegisterRouter(engine *gin.Engine) {
-	purchaseRespository := purchaseInfraestructure.NewMongoRepository()
-	userRepository := userInfraestructure.NewMongoRepository()
+	purchaseRespository := purchaseinfrastructure.NewMongoRepository()
+	userRepository := userinfrastructure.NewMongoRepository()
 
 	engine.Use(middlewares.ErrorMiddleware())
 

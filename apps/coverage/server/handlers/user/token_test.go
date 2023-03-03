@@ -12,7 +12,7 @@ import (
 	"github.com/edwbaeza/coverage-api/apps/coverage/server/middlewares"
 	sharedDomain "github.com/edwbaeza/coverage-api/src/shared/domain"
 	userDomain "github.com/edwbaeza/coverage-api/src/user/domain"
-	userInfraestructure "github.com/edwbaeza/coverage-api/src/user/infraestructure"
+	userinfrastructure "github.com/edwbaeza/coverage-api/src/user/infrastructure"
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
@@ -28,7 +28,7 @@ func TestTokenHandler(t *testing.T) {
 		"username": "edwinbaeza05@gmail.com",
 		"password": "devtest01",
 	}
-	mockRepo := &userInfraestructure.MockRepository{}
+	mockRepo := &userinfrastructure.MockRepository{}
 	user := userDomain.User{
 		Email:    data["email"],
 		Password: "$2a$10$F4XnOU5FyTaEaW4UvNty0.l8WG6I550UX5VwBjUH38vtef6z4VU2a",

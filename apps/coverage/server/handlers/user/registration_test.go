@@ -11,7 +11,7 @@ import (
 
 	"github.com/edwbaeza/coverage-api/apps/coverage/server/middlewares"
 	userDomain "github.com/edwbaeza/coverage-api/src/user/domain"
-	userInfraestructure "github.com/edwbaeza/coverage-api/src/user/infraestructure"
+	userinfrastructure "github.com/edwbaeza/coverage-api/src/user/infrastructure"
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
@@ -30,7 +30,7 @@ func TestRegistrationHandler(tGlobal *testing.T) {
 		"first_name":            "Edwin",
 		"last_name":             "Baeza",
 	}
-	mockRepo := &userInfraestructure.MockRepository{}
+	mockRepo := &userinfrastructure.MockRepository{}
 	mockUser := userDomain.User{
 		Email:     data["email"],
 		Password:  "$2a$10$F4XnOU5FyTaEaW4UvNty0.l8WG6I550UX5VwBjUH38vtef6z4VU2a",
